@@ -1,0 +1,9 @@
+syntax: glob
+*.o
+*.orig
+*.pyc
+*.rej
+*.tmp
+*~
+.\#*
+dist/

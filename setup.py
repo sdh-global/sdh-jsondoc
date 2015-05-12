@@ -7,11 +7,11 @@ except ImportError:
     from setuptools import setup, find_packages
 
 
-Name='ua2.carbon'
-ProjecUrl="https://bitbucket.org/ua2crm/ua2.carbon"
-Version='0.0.4'
+Name='ua2.jsondoc'
+ProjecUrl="https://bitbucket.org/ua2crm/ua2.jsondoc"
+Version='0.0.1'
 Author='Vic'
-AuthorEmail='vic@ua2web.com'
+AuthorEmail='vic@ua2crm.com'
 Maintainer='Viacheslav Vic Bukhantsov'
 Summary='Tool for stream statistics to carbon daemon (from graphite)'
 License='BSD License'

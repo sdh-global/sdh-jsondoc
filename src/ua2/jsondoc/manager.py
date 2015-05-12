@@ -1,3 +1,6 @@
+from importlib import import_module
+
+from django.core.urlresolvers import reverse
 from .encoder import JsonDocEncoder
 
 class JsonDocManager(object):
@@ -29,6 +32,13 @@ class JsonDocManager(object):
         for item in self.json_data:
             if 'title' in item:
                 return item['title']
+        return None
+
+    def url(self):
+        for item in self.json_data:
+            if 'url' in item:
+                return reverse(item['url']['url_name'],
+                               kwargs=item['url']['url_parametres'])
         return None
 
     def description(self):

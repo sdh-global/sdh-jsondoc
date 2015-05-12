@@ -11,4 +11,7 @@ class JsonDocEncoder(object):
     def dump(self):
         data = self.key()
         data['title'] = unicode(self.data_object)
+        if hasattr(self.data_object, 'json_dump'):
+            data.update(self.data_object.json_dump())
+
         return data

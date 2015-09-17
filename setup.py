@@ -9,11 +9,11 @@ except ImportError:
 
 Name='ua2.jsondoc'
 ProjecUrl="https://bitbucket.org/ua2crm/ua2.jsondoc"
-Version='0.0.1'
-Author='Vic'
+Version='0.0.3'
+Author='Viacheslav Vic Bukhantsov'
 AuthorEmail='vic@ua2crm.com'
 Maintainer='Viacheslav Vic Bukhantsov'
-Summary='Tool for stream statistics to carbon daemon (from graphite)'
+Summary='Library for serialize django model header to json dictionary'
 License='BSD License'
 ShortDescription=Summary
 
@@ -58,4 +58,11 @@ setup(
     eager_resources = EagerResources,
     entry_points = EntryPoints,
     namespace_packages = ['ua2'],
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Framework :: Django',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
+        'Topic :: Software Development :: Libraries',
+    ]
 )

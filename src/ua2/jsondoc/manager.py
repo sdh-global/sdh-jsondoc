@@ -1,7 +1,10 @@
+from __future__ import unicode_literals
+
 from importlib import import_module
 
 from django.core.urlresolvers import reverse
 from .encoder import JsonDocEncoder
+
 
 class JsonDocManager(object):
     def __init__(self, json_data):
@@ -44,6 +47,6 @@ class JsonDocManager(object):
     def description(self):
         rc = []
         for item in self.json_data:
-            if 'title' in item:
-                rc.append(item['title'])
+            if 'label' in item:
+                rc.append(item['label'])
         return rc

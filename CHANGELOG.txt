@@ -1,0 +1,5 @@
+* 0.0.3
+  - add Python 3 compatibility
+  - change object description key from title to label
+
+ 

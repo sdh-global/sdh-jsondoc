@@ -33,8 +33,8 @@ class JsonDocManager(object):
 
     def short_description(self):
         for item in self.json_data:
-            if 'title' in item:
-                return item['title']
+            if 'label' in item:
+                return item['label']
         return None
 
     def url(self):

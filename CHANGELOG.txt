@@ -1,3 +1,7 @@
+* 0.0.5
+  - add feature to operate with one document, encoded to json field
+  - renamed managers class
+
 * 0.0.4
   - fix short description
 

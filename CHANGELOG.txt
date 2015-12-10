@@ -1,4 +1,4 @@
-* 0.0.5
+* 0.1.0
   - add feature to operate with one document, encoded to json field
   - renamed managers class
 

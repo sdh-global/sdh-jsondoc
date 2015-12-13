@@ -1,3 +1,7 @@
+* 0.1.1
+  - fix bus with return object url
+  - rename JsonListManager method short_description -> label
+
 * 0.1.0
   - add feature to operate with one document, encoded to json field
   - renamed managers class

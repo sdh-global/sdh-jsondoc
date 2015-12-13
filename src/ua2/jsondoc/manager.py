@@ -15,7 +15,7 @@ class JsonBaseManager(object):
         cls = getattr(_module, data['model'])
         return cls.objects.get(pk=data['id'])
 
-    def label(self, data):
+    def _label(self, data):
         return data.get('label', None)
 
     def _url(self, data):
@@ -47,7 +47,7 @@ class JsonObjectManager(JsonBaseManager):
         return self.get_instance(self.json_data)
 
 
-class JsonListManager(object):
+class JsonListManager(JsonBaseManager):
     def __iter__(self):
         for item in self.json_data:
             yield self.get_instance(item)
@@ -64,9 +64,9 @@ class JsonListManager(object):
     def append(self, instance):
         self.json_data.append(JsonDocEncoder(instance).dump())
 
-    def short_description(self):
+    def label(self):
         for item in self.json_data:
-            label = self.label(item)
+            label = self._label(item)
             if label is not None:
                 return label
         return None
@@ -74,7 +74,7 @@ class JsonListManager(object):
     def url(self):
         for item in self.json_data:
             if 'url' in item:
-                self._url(item)
+                return self._url(item)
         return None
 
     def description(self):
@@ -83,7 +83,7 @@ class JsonListManager(object):
             label = self.label(item)
             if label:
                 rc.append(label)
-        return rc
+        return ", ".join(rc)
 
 
 class JsonDocManager(JsonListManager):

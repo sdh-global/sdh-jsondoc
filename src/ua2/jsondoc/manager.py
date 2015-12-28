@@ -19,8 +19,12 @@ class JsonBaseManager(object):
         return data.get('label', None)
 
     def _url(self, data):
+        #FIXME: typo handling for old releases
+        kwargs = data['url'].get(
+                'url_parametres',
+                data['url'].get('url_parameters'))
         return reverse(data['url']['url_name'],
-                       kwargs=data['url']['url_parametres'])
+                       kwargs=kwargs)
 
     def short_description(self):
         raise NotImplementedError

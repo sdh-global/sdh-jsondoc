@@ -9,7 +9,7 @@ except ImportError:
 
 Name='ua2.jsondoc'
 ProjecUrl="https://bitbucket.org/ua2crm/ua2.jsondoc"
-Version='0.1.1'
+Version='0.1.2'
 Author='Viacheslav Vic Bukhantsov'
 AuthorEmail='vic@ua2crm.com'
 Maintainer='Viacheslav Vic Bukhantsov'

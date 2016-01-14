@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from importlib import import_module
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, NoReverseMatch
 from .encoder import JsonDocEncoder
 
 
@@ -23,8 +23,11 @@ class JsonBaseManager(object):
         kwargs = data['url'].get(
                 'url_parametres',
                 data['url'].get('url_parameters'))
-        return reverse(data['url']['url_name'],
-                       kwargs=kwargs)
+        try:
+            return reverse(data['url']['url_name'],
+                           kwargs=kwargs)
+        except NoReverseMatch:
+            return None
 
     def short_description(self):
         raise NotImplementedError
@@ -84,11 +87,20 @@ class JsonListManager(JsonBaseManager):
     def description(self):
         rc = []
         for item in self.json_data:
-            label = self.label(item)
+            label = self._label(item)
             if label:
                 rc.append(label)
         return ", ".join(rc)
 
+    def iter_items(self):
+        for obj in self.json_data:
+            item = {}
+            if 'url' in obj:
+                url = self._url(obj)
+                if url:
+                    item['url'] = url
+            item['label'] = self._label(obj)
+            yield item
 
 class JsonDocManager(JsonListManager):
     def __init__(self, json_data):

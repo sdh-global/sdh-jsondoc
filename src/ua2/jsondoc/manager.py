@@ -19,7 +19,7 @@ class JsonBaseManager(object):
         return data.get('label', None)
 
     def _url(self, data):
-        #FIXME: typo handling for old releases
+        # FIXME: typo handling for old releases
         kwargs = data['url'].get(
                 'url_parametres',
                 data['url'].get('url_parameters'))
@@ -44,10 +44,10 @@ class JsonObjectManager(JsonBaseManager):
         return self._url(self.json_data)
 
     def short_description(self):
-        return self.label(self.json_data)
+        return self._label(self.json_data)
 
     def description(self):
-        return [self.label(self.json_data)]
+        return [self._label(self.json_data)]
 
     @property
     def instance(self):
@@ -63,9 +63,15 @@ class JsonListManager(JsonBaseManager):
         if hasattr(self, key) and callable(getattr(self, key)):
             return getattr(self, key)
 
+        obj = self.get_first(key)
+        if obj:
+            return self.get_instance(obj)
+        return None
+
+    def get_first(self, key):
         for item in self.json_data:
             if item.get('model', '') == key:
-                return self.get_instance(item)
+                return item
         return None
 
     def append(self, instance):
@@ -102,7 +108,12 @@ class JsonListManager(JsonBaseManager):
             item['label'] = self._label(obj)
             yield item
 
+    def short_description(self):
+        return self.description()
+
+
 class JsonDocManager(JsonListManager):
-    def __init__(self, json_data):
+    def __init__(self, *args, **kwargs):
+        super(JsonDocManager, self).__init__(*args, **kwargs)
+
         raise DeprecationWarning("JsonDocManager deprecated, please use JsonListManager instead")
-        super(JsonDocManager, self).__init__(json_data)

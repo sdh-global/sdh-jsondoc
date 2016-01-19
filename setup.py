@@ -9,7 +9,7 @@ except ImportError:
 
 Name='ua2.jsondoc'
 ProjecUrl="https://bitbucket.org/ua2crm/ua2.jsondoc"
-Version='0.1.3'
+Version='0.1.4'
 Author='Viacheslav Vic Bukhantsov'
 AuthorEmail='vic@ua2crm.com'
 Maintainer='Viacheslav Vic Bukhantsov'
@@ -59,7 +59,7 @@ setup(
     entry_points = EntryPoints,
     namespace_packages = ['ua2'],
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Framework :: Django',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',

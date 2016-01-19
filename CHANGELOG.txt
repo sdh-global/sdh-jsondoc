@@ -1,5 +1,8 @@
+* 0.1.4
+  - add get_first method to get first element in the list data by model key
+
 * 0.1.3
-  - add iterm_item over JsonListManager
+  - add item_item over JsonListManager
   - add catch exception for incorrect URl back resolve - now return None
 
 * 0.1.2

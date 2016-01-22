@@ -111,6 +111,20 @@ class JsonListManager(JsonBaseManager):
     def short_description(self):
         return self.description()
 
+    def update(self, obj):
+        """
+        Replace object in the json_data with new provided. Keep ordering.
+        :param obj: object to replace with
+        """
+        rc = []
+        data = JsonDocEncoder(obj).dump()
+        for item in self.json_data:
+            if item['model'] == data['model']:
+                rc.append(obj)
+            else:
+                rc.append(self.get_instance(item))
+        return rc
+
 
 class JsonDocManager(JsonListManager):
     def __init__(self, *args, **kwargs):

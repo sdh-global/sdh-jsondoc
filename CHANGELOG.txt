@@ -1,3 +1,6 @@
+* 0.1.5
+  - add feature to replace item in the JsonListManager list with new
+
 * 0.1.4
   - add get_first method to get first element in the list data by model key
 

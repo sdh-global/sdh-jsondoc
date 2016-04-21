@@ -68,6 +68,13 @@ class JsonListManager(JsonBaseManager):
             return self.get_instance(obj)
         return None
 
+    @property
+    def instance(self):
+        for item in self.json_data:
+            if item.get('model', ''):
+                return self.get_instance(item)
+        return None
+
     def get_first(self, key):
         for item in self.json_data:
             if item.get('model', '') == key:

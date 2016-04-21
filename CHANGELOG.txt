@@ -1,3 +1,6 @@
+* 0.1.6
+  - add instance property to JsonListManager - it's return first available model instance
+
 * 0.1.5
   - add feature to replace item in the JsonListManager list with new
 

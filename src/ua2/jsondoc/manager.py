@@ -107,7 +107,7 @@ class JsonListManager(JsonBaseManager):
 
     def iter_items(self):
         for obj in self.json_data:
-            item = {}
+            item = obj.copy()
             if 'url' in obj:
                 url = self._url(obj)
                 if url:

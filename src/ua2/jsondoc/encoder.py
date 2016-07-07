@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+
 class JsonDocEncoder(object):
     def __init__(self, data_object):
         self.data_object = data_object

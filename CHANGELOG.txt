@@ -1,3 +1,6 @@
+* 0.1.7
+  - return all keys of original object by JsonListManager.iter_items method
+
 * 0.1.6
   - add instance property to JsonListManager - it's return first available model instance
 

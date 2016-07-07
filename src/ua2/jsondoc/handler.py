@@ -23,7 +23,7 @@ class JsonListHandler(object):
         return manager
 
     def __set__(self, model, value):
-        data = [ JsonDocEncoder(item).dump() for item in value ]
+        data = [JsonDocEncoder(item).dump() for item in value]
         if hasattr(model, self.cache_key):
             delattr(model, self.cache_key)
         setattr(model, self.field_name, data)

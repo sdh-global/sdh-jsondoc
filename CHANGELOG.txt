@@ -1,3 +1,6 @@
+* 0.1.8
+  - fix url processing
+
 * 0.1.7
   - return all keys of original object by JsonListManager.iter_items method
 

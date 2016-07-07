@@ -110,8 +110,7 @@ class JsonListManager(JsonBaseManager):
             item = obj.copy()
             if 'url' in obj:
                 url = self._url(obj)
-                if url:
-                    item['url'] = url
+                item['url'] = url
             item['label'] = self._label(obj)
             yield item
 

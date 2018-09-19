@@ -56,7 +56,7 @@ class JsonObjectManager(JsonBaseManager):
 
 class JsonListManager(JsonBaseManager):
     def __iter__(self):
-        for item in self.json_data:
+        for item in self.json_data or []:
             yield self.get_instance(item)
 
     def __getitem__(self, key):
@@ -70,13 +70,13 @@ class JsonListManager(JsonBaseManager):
 
     @property
     def instance(self):
-        for item in self.json_data:
+        for item in self.json_data or []:
             if item.get('model', ''):
                 return self.get_instance(item)
         return None
 
     def get_first(self, key):
-        for item in self.json_data:
+        for item in self.json_data or []:
             if item.get('model', '') == key:
                 return item
         return None
@@ -85,28 +85,28 @@ class JsonListManager(JsonBaseManager):
         self.json_data.append(JsonDocEncoder(instance).dump())
 
     def label(self):
-        for item in self.json_data:
+        for item in self.json_data or []:
             label = self._label(item)
             if label is not None:
                 return label
         return None
 
     def url(self):
-        for item in self.json_data:
+        for item in self.json_data or []:
             if 'url' in item:
                 return self._url(item)
         return None
 
     def description(self):
         rc = []
-        for item in self.json_data:
+        for item in self.json_data or []:
             label = self._label(item)
             if label:
                 rc.append(label)
         return ", ".join(rc)
 
     def iter_items(self):
-        for obj in self.json_data:
+        for obj in self.json_data or []:
             item = obj.copy()
             if 'url' in obj:
                 url = self._url(obj)
@@ -124,7 +124,7 @@ class JsonListManager(JsonBaseManager):
         """
         rc = []
         data = JsonDocEncoder(obj).dump()
-        for item in self.json_data:
+        for item in self.json_data or []:
             if item['model'] == data['model']:
                 rc.append(obj)
             else:

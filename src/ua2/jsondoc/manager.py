@@ -13,6 +13,9 @@ class JsonBaseManager(object):
     def get_instance(self, data):
         _module = import_module(data['module'])
         cls = getattr(_module, data['model'])
+        handler = getattr(cls, 'json_get_instance', None)
+        if handler and callable(handler):
+            return handler(data)
         return cls.objects.get(pk=data['id'])
 
     def _label(self, data):

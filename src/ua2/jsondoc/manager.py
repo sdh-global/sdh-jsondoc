@@ -71,15 +71,20 @@ class JsonListManager(JsonBaseManager):
             return self.get_instance(obj)
         return None
 
+    def iter_data(self):
+        for item in self.json_data or []:
+            if item:
+                yield item
+
     @property
     def instance(self):
-        for item in self.json_data or []:
+        for item in self.iter_data():
             if item.get('model', ''):
                 return self.get_instance(item)
         return None
 
     def get_first(self, key):
-        for item in self.json_data or []:
+        for item in self.iter_data():
             if item.get('model', '') == key:
                 return item
         return None
@@ -88,28 +93,28 @@ class JsonListManager(JsonBaseManager):
         self.json_data.append(JsonDocEncoder(instance).dump())
 
     def label(self):
-        for item in self.json_data or []:
+        for item in self.iter_data():
             label = self._label(item)
             if label is not None:
                 return label
         return None
 
     def url(self):
-        for item in self.json_data or []:
+        for item in self.iter_data():
             if 'url' in item:
                 return self._url(item)
         return None
 
     def description(self):
         rc = []
-        for item in self.json_data or []:
+        for item in self.iter_data():
             label = self._label(item)
             if label:
                 rc.append(label)
         return ", ".join(rc)
 
     def iter_items(self):
-        for obj in self.json_data or []:
+        for obj in self.iter_data():
             item = obj.copy()
             if 'url' in obj:
                 url = self._url(obj)
@@ -127,7 +132,7 @@ class JsonListManager(JsonBaseManager):
         """
         rc = []
         data = JsonDocEncoder(obj).dump()
-        for item in self.json_data or []:
+        for item in self.iter_data():
             if item['model'] == data['model']:
                 rc.append(obj)
             else:

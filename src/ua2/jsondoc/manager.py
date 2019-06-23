@@ -50,7 +50,7 @@ class JsonObjectManager(JsonBaseManager):
         return self._label(self.json_data)
 
     def description(self):
-        return [self._label(self.json_data)]
+        return self._label(self.json_data)
 
     @property
     def instance(self):
@@ -58,9 +58,6 @@ class JsonObjectManager(JsonBaseManager):
 
 
 class JsonListManager(JsonBaseManager):
-    def __init__(self, json_data):
-        self.json_data = [item for item in json_data if item]
-
     def __iter__(self):
         for item in self.json_data or []:
             yield self.get_instance(item)

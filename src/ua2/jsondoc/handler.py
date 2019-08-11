@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from .manager import JsonListManager, JsonObjectManager
 from .encoder import JsonDocEncoder
 

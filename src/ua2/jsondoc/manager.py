@@ -1,8 +1,7 @@
-from __future__ import unicode_literals
 
 from importlib import import_module
 
-from django.core.urlresolvers import reverse, NoReverseMatch
+from django.urls import reverse, NoReverseMatch
 from .encoder import JsonDocEncoder
 
 

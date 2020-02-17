@@ -2,7 +2,10 @@ from __future__ import unicode_literals
 
 from importlib import import_module
 
-from django.core.urlresolvers import reverse, NoReverseMatch
+try:
+    from django.core.urlresolvers import reverse, NoReverseMatch
+except ImportError:
+    from django.urls import reverse, NoReverseMatch
 from .encoder import JsonDocEncoder
 
 

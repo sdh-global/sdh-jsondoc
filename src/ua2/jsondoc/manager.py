@@ -1,12 +1,13 @@
 from __future__ import unicode_literals
 
-from importlib import import_module
 
 try:
     from django.core.urlresolvers import reverse, NoReverseMatch
 except ImportError:
     from django.urls import reverse, NoReverseMatch
+
 from .encoder import JsonDocEncoder
+from .decoder import JsonDocDecoder
 
 
 class JsonBaseManager(object):
@@ -14,12 +15,7 @@ class JsonBaseManager(object):
         self.json_data = json_data
 
     def get_instance(self, data):
-        _module = import_module(data['module'])
-        cls = getattr(_module, data['model'])
-        handler = getattr(cls, 'json_get_instance', None)
-        if handler and callable(handler):
-            return handler(data)
-        return cls.objects.get(pk=data['id'])
+        return JsonDocDecoder(data).instance
 
     def _label(self, data):
         return data.get('label', None)

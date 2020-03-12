@@ -17,5 +17,5 @@ class JsonDocDecoder(object):
         cls = getattr(_module, self.obj_key['model'])
         handler = getattr(cls, 'json_get_instance', None)
         if handler and callable(handler):
-            return handler(data)
+            return handler(self.obj_key)
         return cls.objects.get(pk=self.obj_key['id'])

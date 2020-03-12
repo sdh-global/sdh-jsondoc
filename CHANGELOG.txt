@@ -1,3 +1,6 @@
+* 0.3.2
+  - fix JsonDocDecoder
+
 * 0.3.1
   - fix encodning non ASCII string in JsonDocEncoder
 

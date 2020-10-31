@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 version = '0.3.3'
 
 setup(
-    name='sdh.table3',
+    name='sdh.jsondoc',
     version=version,
     url='https://bitbucket.org/sdh-llc/sdh.jsondoc',
     author='Software Development Hub LLC',

@@ -1,3 +1,12 @@
+* 0.3.3
+  - remove python2 compatibility
+  - change namespace ua2 -> sdh
+  - minimal Django version is 2.2
+
+* 0.3.2
+  - fix JsonDocDecoder
+
+
 * 0.3.2
   - fix JsonDocDecoder
 

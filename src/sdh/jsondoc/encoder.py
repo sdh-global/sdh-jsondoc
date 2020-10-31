@@ -1,8 +1,7 @@
-from __future__ import unicode_literals
 from django.utils.encoding import force_text
 
 
-class JsonDocEncoder(object):
+class JsonDocEncoder:
     def __init__(self, data_object):
         self.data_object = data_object
 

@@ -1,10 +1,8 @@
-from __future__ import unicode_literals
-
 from .manager import JsonListManager, JsonObjectManager
 from .encoder import JsonDocEncoder
 
 
-class JsonListHandler(object):
+class JsonListHandler:
     MANAGER = JsonListManager
 
     def __init__(self, field_name):
@@ -29,7 +27,7 @@ class JsonListHandler(object):
         setattr(model, self.field_name, data)
 
 
-class JsonObjectHandler(object):
+class JsonObjectHandler:
     MANAGER = JsonObjectManager
 
     def __init__(self, field_name):

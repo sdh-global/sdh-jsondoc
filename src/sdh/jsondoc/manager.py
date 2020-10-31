@@ -1,16 +1,10 @@
-from __future__ import unicode_literals
-
-
-try:
-    from django.core.urlresolvers import reverse, NoReverseMatch
-except ImportError:
-    from django.urls import reverse, NoReverseMatch
+from django.urls import NoReverseMatch, reverse
 
 from .encoder import JsonDocEncoder
 from .decoder import JsonDocDecoder
 
 
-class JsonBaseManager(object):
+class JsonBaseManager:
     def __init__(self, json_data):
         self.json_data = json_data
 

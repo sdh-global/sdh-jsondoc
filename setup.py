@@ -1,68 +1,37 @@
 #!/usr/bin/env python
-try:
-    from setuptools import setup, find_packages
-except ImportError:
-    from ez_setup import use_setuptools
-    use_setuptools()
-    from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
-
-Name='ua2.jsondoc'
-ProjecUrl="https://bitbucket.org/sdh-llc/ua2.jsondoc"
-Version='0.3.2'
-Author='Viacheslav Vic Bukhantsov'
-AuthorEmail='vic@ua2crm.com'
-Maintainer='Viacheslav Vic Bukhantsov'
-Summary='Library for serialize django model header to json dictionary'
-License='BSD License'
-ShortDescription=Summary
-
-with open('README.rst') as fh:
-    long_description = fh.read()
-
-needed = [
-]
-
-EagerResources = [
-    'ua2',
-]
-
-ProjectScripts = [
-##    'scripts/runweb',
-]
-
-PackageData = {
-    '': ['*.*', '*.html'],
-}
-
-# Make exe versions of the scripts:
-EntryPoints = {
-}
+version='0.3.2'
 
 setup(
-    url=ProjecUrl,
-    name=Name,
-    zip_safe=False,
-    version=Version,
-    author=Author,
-    author_email=AuthorEmail,
-    description=ShortDescription,
-    long_description=long_description,
-    license=License,
-    scripts=ProjectScripts,
-    install_requires=needed,
-    include_package_data=True,
+    name='sdh.table3',
+    version=version,
+    url='https://bitbucket.org/sdh-llc/sdh.jsondoc',
+    author='Software Development Hub LLC',
+    author_email='dev-tools@sdh.com.ua',
+    description='Table rendering engine',
+    license='BSD',
     packages=find_packages('src'),
-    package_data=PackageData,
-    package_dir = {'': 'src'},
-    eager_resources = EagerResources,
-    entry_points = EntryPoints,
-    namespace_packages = ['ua2'],
+    package_dir={'': 'src'},
+    namespace_packages=['sdh'],
+    eager_resources=['sdh'],
+    include_package_data=True,
+    entry_points={},
+    install_requires=['Django>=2.2', ],
+    zip_safe=False,
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Web Environment',
         'Framework :: Django',
-        'Programming Language :: Python :: 2',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Topic :: Software Development :: Libraries',
-    ]
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Topic :: Internet :: WWW/HTTP',
+        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+    ],
 )

@@ -1,8 +1,7 @@
-from __future__ import unicode_literals
 from importlib import import_module
 
 
-class JsonDocDecoder(object):
+class JsonDocDecoder:
     def __init__(self, obj_key):
         self.obj_key = obj_key
 

@@ -1,3 +1,6 @@
+* 0.3.4
+  - add Django 4.0 support
+
 * 0.3.3
   - remove python2 compatibility
   - change namespace ua2 -> sdh

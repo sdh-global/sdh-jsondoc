@@ -1,4 +1,7 @@
-from django.utils.encoding import force_text
+try:
+    from django.utils.encoding import force_text
+except:
+    from django.utils.encoding import force_str as force_text
 
 
 class JsonDocEncoder:

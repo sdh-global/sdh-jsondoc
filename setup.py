@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from setuptools import find_packages, setup
 
-version = '0.3.3'
+version = '0.3.4'
 
 setup(
     name='sdh.jsondoc',
@@ -9,7 +9,7 @@ setup(
     url='https://bitbucket.org/sdh-llc/sdh.jsondoc',
     author='Software Development Hub LLC',
     author_email='dev-tools@sdh.com.ua',
-    description='Table rendering engine',
+    description='Utils to store data into json',
     license='BSD',
     packages=find_packages('src'),
     package_dir={'': 'src'},
@@ -30,6 +30,8 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.10',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules',

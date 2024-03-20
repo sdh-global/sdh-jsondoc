@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src/"]
+include = ["sdh.jsondoc"]
+
+[project]
+name = "sdh.jsondoc"
+description = "Utils to store data into json"
+readme = "README.rst"
+requires-python = ">= 3.8"
+dependencies = [
+  "Django>=2.2",
+]
+authors = [
+  {name = "Software Development Hub LLC", email = "dev-tools@sdh.com.ua"},
+  {name = "Viacheslav Vic Bukhantsov", email = "vic.bukhantsov@gmail.com"},
+]
+maintainers = [
+  {name = "Viacheslav Vic Bukhantsov", email = "vic.bukhantsov@gmail.com"}
+]
+license = {file = "LICENSE.txt"}
+classifiers = [
+	'Development Status :: 5 - Production/Stable',
+	'Environment :: Web Environment',
+	'Framework :: Django',
+	'Intended Audience :: Developers',
+	'License :: OSI Approved :: BSD License',
+	'Operating System :: OS Independent',
+	'Programming Language :: Python',
+	'Programming Language :: Python :: 3',
+	'Programming Language :: Python :: 3.6',
+	'Programming Language :: Python :: 3.7',
+	'Programming Language :: Python :: 3.8',
+	'Programming Language :: Python :: 3.10',
+	'Topic :: Internet :: WWW/HTTP',
+	'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+	'Topic :: Software Development :: Libraries :: Python Modules',
+]
+keywords = ["json", "django"]
+version = "0.3.4"
+
+[project.urls]
+Homepage = "https://bitbucket.org/sdh-llc/sdh-jsondoc/"
+Documentation = "https://bitbucket.org/sdh-llc/sdh-jsondoc/"
+Repository = "https://bitbucket.org/sdh-llc/sdh-jsondoc/"
+Changelog = "https://bitbucket.org/sdh-llc/sdh-jsondoc/src/master/CHANGELOG.txt"

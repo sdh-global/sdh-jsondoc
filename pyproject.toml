@@ -40,7 +40,7 @@ classifiers = [
 	'Topic :: Software Development :: Libraries :: Python Modules',
 ]
 keywords = ["json", "django"]
-version = "0.3.4"
+version = "0.3.5"
 
 [project.urls]
 Homepage = "https://bitbucket.org/sdh-llc/sdh-jsondoc/"
